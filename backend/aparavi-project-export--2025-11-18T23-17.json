@@ -1,0 +1,1863 @@
+{
+  "components": [
+    {
+      "id": "classify_1",
+      "provider": "classify",
+      "config": {
+        "classifications": [
+          {
+            "name": "United States Drivers License Number Policy",
+            "description": "Detect United States drivers license numbers.",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "dc5a486a-9752-f0bf-98ef-07cfdcf54dbb",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States Drivers License Number Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detect United States drivers license numbers.",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2021",
+                          "minor": "7",
+                          "build": "0",
+                          "revision": "11266"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L6.21"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R53"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_Higher_Confidence_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "And": [
+                                  {
+                                    "Or": [
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "4781f188-f04e-a954-8480-fc670bdc4e61"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "de8414dd-2b62-006a-8d37-ab76ed468d46",
+                                              "minConfidence": "90"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "0d08bea1-8501-15a3-f75b-a5b2599f8188"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "222066f3-abfc-3065-5b8f-4037c1ba4398"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "3b936a52-167d-269b-6346-c7610d6d51cc"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "b8e285e5-162e-bdfd-6b65-3223683be249"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "Not": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "ef0b1251-3192-f6e6-e638-34684b0bff69"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "107a0fe6-0503-9fb1-9bf0-23e475e8ed1e"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "US_Drivers_License_Number_Detected": [
+                                  {
+                                    "Attributes": {
+                                      "confidence": "90"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "dc5a486a-9752-f0bf-98ef-07cfdcf54dbb",
+            "rules": [
+              "4781f188-f04e-a954-8480-fc670bdc4e61",
+              "de8414dd-2b62-006a-8d37-ab76ed468d46",
+              "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c",
+              "222066f3-abfc-3065-5b8f-4037c1ba4398"
+            ]
+          },
+          {
+            "name": "United States Export Controlled Information Policy",
+            "description": "Detects content subject to export control under the U.S. International Traffic in Arms Regulations (ITAR), the Arms Export Control Act, the Export Administration Act, export controlled materials under U.S. Department of Commerce (DoC) Export Administration Regulations (EAR) 15 CFR §§730-774, the Export Administration Regulations (EAR), U.S. Executive Order 13556 \"Controlled Unclassified Information\" (CUI) 32 CFR Part 2002, or articles, services, and related technical data designated as defense articles or defense services pursuant to sections 38 and 47(7) of the Arms Export Control Act and constitute the U.S. Munitions List (USML).",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "c522264d-ef18-9076-07f5-8b77d5e45556",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States Export Controlled Information Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detects content subject to export control under the U.S. International Traffic in Arms Regulations (ITAR), the Arms Export Control Act, the Export Administration Act, export controlled materials under U.S. Department of Commerce (DoC) Export Administration Regulations (EAR) 15 CFR §§730-774, the Export Administration Regulations (EAR), U.S. Executive Order 13556 \"Controlled Unclassified Information\" (CUI) 32 CFR Part 2002, or articles, services, and related technical data designated as defense articles or defense services pursuant to sections 38 and 47(7) of the Arms Export Control Act and constitute the U.S. Munitions List (USML).",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2021",
+                          "minor": "7",
+                          "build": "0",
+                          "revision": "11266"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L6.21"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R1004"
+                                }
+                              },
+                              {
+                                "Attributes": {
+                                  "idRef": "R1005"
+                                }
+                              },
+                              {
+                                "Attributes": {
+                                  "idRef": "R1006"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "And": [
+                                  {
+                                    "Or": [
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "d110bebd-ef97-289d-2a58-fc40859a956d"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "0b25a66b-9f5c-6474-23d4-8e12bb4be062"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "3540cdf3-0f75-4572-194c-1e422ffd66e1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "3ac3e073-923b-5e72-6fd8-49de84745e1b"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "477b507f-66a4-592d-d628-8d03302364ec"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "2019b85e-292e-98e6-7171-54f87cee0427"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "Not": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "6d83373a-19e2-6c56-fda2-6e1d670b03d6"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "ab832ef9-e832-ab57-a063-a01d40379783"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "US_Export_Controlled_Information_Detected": [
+                                  ""
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "c522264d-ef18-9076-07f5-8b77d5e45556",
+            "rules": [
+              "d110bebd-ef97-289d-2a58-fc40859a956d",
+              "0b25a66b-9f5c-6474-23d4-8e12bb4be062",
+              "3540cdf3-0f75-4572-194c-1e422ffd66e1"
+            ]
+          },
+          {
+            "name": "United States Passport Policy",
+            "description": "Detects U.S. passports and passport cards with related personal information.",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "86a8e118-0aa7-77a6-b164-5834624b3450",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States Passport Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detects U.S. passports and passport cards with related personal information.",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2021",
+                          "minor": "7",
+                          "build": "0",
+                          "revision": "11266"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L6.21"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R53"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_Higher_Confidence_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "And": [
+                                  {
+                                    "Or": [
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "4781f188-f04e-a954-8480-fc670bdc4e61"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "de8414dd-2b62-006a-8d37-ab76ed468d46",
+                                              "minConfidence": "90"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "fd3de727-8676-8d93-5582-d6ae4502ccc5"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "31eaaaa4-0f11-8732-6b82-b2a6256c35d8"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "1a78c925-2007-88ec-5cd2-41a8127c038d"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "28454a83-a3bd-513c-cb13-6adea3b4fd28"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "0ae50e9d-52bc-c03b-f488-b5f170f9f42a"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "8379d8b6-3d9d-8d5d-277c-71ed975189ad"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "Not": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "92e52b15-b4bb-a37c-656a-9112f5142d98"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "8c9a391f-3918-3f2e-b432-a066f62cc31c"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "US_Passport_Detected": [
+                                  {
+                                    "Attributes": {
+                                      "confidence": "90"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "86a8e118-0aa7-77a6-b164-5834624b3450",
+            "rules": [
+              "4781f188-f04e-a954-8480-fc670bdc4e61",
+              "de8414dd-2b62-006a-8d37-ab76ed468d46",
+              "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c",
+              "fd3de727-8676-8d93-5582-d6ae4502ccc5",
+              "1a78c925-2007-88ec-5cd2-41a8127c038d",
+              "28454a83-a3bd-513c-cb13-6adea3b4fd28"
+            ]
+          },
+          {
+            "name": "United States Personal Data Policy",
+            "description": "Detects personal data applicable to United States's Federal and State laws, including The Federal Trade Commission Act (FTC Act), the Financial Services Modernization Act (Gramm-Leach-Bliley Act (GLB/GLBA)), the Health Insurance Portability and Accountability Act (HIPAA), the Fair Credit Reporting Act (FCRA), the Fair and Accurate Credit Transactions Act (FACTA), among many others.",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "6804f220-9e66-6a42-a4e6-d53b11f2b91b",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States Personal Data Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detects personal data applicable to United States's Federal and State laws, including The Federal Trade Commission Act (FTC Act), the Financial Services Modernization Act (Gramm-Leach-Bliley Act (GLB/GLBA)), the Health Insurance Portability and Accountability Act (HIPAA), the Fair Credit Reporting Act (FCRA), the Fair and Accurate Credit Transactions Act (FACTA), among many others.",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2024",
+                          "minor": "2",
+                          "build": "0",
+                          "revision": "12484"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L6.21"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R53"
+                                }
+                              },
+                              {
+                                "Attributes": {
+                                  "idRef": "R1"
+                                }
+                              },
+                              {
+                                "Attributes": {
+                                  "idRef": "R2"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "Or": [
+                                  {
+                                    "Attributes": {
+                                      "min": "1",
+                                      "earlyOut": "true"
+                                    },
+                                    "And": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "Attributes": {
+                                              "min": "2"
+                                            },
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "4781f188-f04e-a954-8480-fc670bdc4e61"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "0cbcdb45-1c61-81a1-233b-5a05c9a16080",
+                                                  "minCount": "10"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "7c65fe2e-79e7-3f19-cf33-b18228744cb9"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "de8414dd-2b62-006a-8d37-ab76ed468d46",
+                                                  "minCount": "4"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "b5d1e90c-2916-1354-845d-8a67cecc2723",
+                                                  "minConfidence": "85"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "fd3de727-8676-8d93-5582-d6ae4502ccc5",
+                                                  "minCount": "4"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "fdb635cc-97a9-89eb-844f-f2eb632aa458"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "0b76b606-465d-5615-9f29-7a0043cf1cc8"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "1496074a-cc29-8d17-9944-172bdea942b9"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ],
+                                        "Not": [
+                                          {
+                                            "Or": [
+                                              {
+                                                "ClassificationRule": [
+                                                  {
+                                                    "Attributes": {
+                                                      "idRef": "99b3cf23-2540-718f-6b3f-8acacb103f0d"
+                                                    }
+                                                  },
+                                                  {
+                                                    "Attributes": {
+                                                      "idRef": "e087fe53-a96b-5e2a-6bba-f4160563d2d0"
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "407b6e49-8d5c-16ee-841b-6771bfcbc9b3",
+                                                  "minConfidence": "70"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "162eae37-1a3e-2edb-51d2-7a96e9d4d732"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "8ac32a03-6b8a-01ae-82e4-012a133c6042"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "222066f3-abfc-3065-5b8f-4037c1ba4398"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "dc7a8728-ed43-712a-ec1a-60a108cae6ca"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "28454a83-a3bd-513c-cb13-6adea3b4fd28"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "1a78c925-2007-88ec-5cd2-41a8127c038d"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "247b8d70-6e25-7bfe-ca36-6ee82d64a7e0",
+                                                  "minConfidence": "75",
+                                                  "patternMode": "withinConfidenceRange"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "5ef8c49a-7a7c-4b82-9a07-cd655e29e0f0"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "55a4b62c-7cbd-1f5e-d7b2-69e3535bb4b5"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "c2118716-9f9e-43e6-ad66-e6c2e64c4ce0"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ],
+                                        "Not": [
+                                          {
+                                            "Or": [
+                                              {
+                                                "ClassificationRule": [
+                                                  {
+                                                    "Attributes": {
+                                                      "idRef": "43a6b97b-50ab-436a-c8b9-7dee6eac2ee7"
+                                                    }
+                                                  },
+                                                  {
+                                                    "Attributes": {
+                                                      "idRef": "ed0d51ee-174b-ae54-c014-8df8ba24dd97"
+                                                    }
+                                                  }
+                                                ]
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "US_PII_Content_Detected": [
+                                  ""
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "6804f220-9e66-6a42-a4e6-d53b11f2b91b",
+            "rules": [
+              "4781f188-f04e-a954-8480-fc670bdc4e61",
+              "0cbcdb45-1c61-81a1-233b-5a05c9a16080",
+              "7c65fe2e-79e7-3f19-cf33-b18228744cb9",
+              "de8414dd-2b62-006a-8d37-ab76ed468d46",
+              "b5d1e90c-2916-1354-845d-8a67cecc2723",
+              "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c",
+              "fd3de727-8676-8d93-5582-d6ae4502ccc5",
+              "407b6e49-8d5c-16ee-841b-6771bfcbc9b3",
+              "162eae37-1a3e-2edb-51d2-7a96e9d4d732",
+              "8ac32a03-6b8a-01ae-82e4-012a133c6042",
+              "222066f3-abfc-3065-5b8f-4037c1ba4398",
+              "dc7a8728-ed43-712a-ec1a-60a108cae6ca",
+              "28454a83-a3bd-513c-cb13-6adea3b4fd28",
+              "1a78c925-2007-88ec-5cd2-41a8127c038d",
+              "247b8d70-6e25-7bfe-ca36-6ee82d64a7e0"
+            ]
+          },
+          {
+            "name": "United States Sensitive Data Policy",
+            "description": "Detects sensitive data for the United States as defined by the California Consumer Privacy Act of 2018 (CCPA).",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "a2c8155c-e841-153d-6be7-0f76b5a34223",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States Sensitive Data Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detects sensitive data for the United States as defined by the California Consumer Privacy Act of 2018 (CCPA).",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2021",
+                          "minor": "7",
+                          "build": "0",
+                          "revision": "11266"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L6.21"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R53"
+                                }
+                              },
+                              {
+                                "Attributes": {
+                                  "idRef": "R1"
+                                }
+                              },
+                              {
+                                "Attributes": {
+                                  "idRef": "R2"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "And": [
+                                  {
+                                    "Or": [
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "53dcf015-e881-572e-9852-40132be0f1dc",
+                                              "minUniqueCount": "1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "4f37bb8a-62b2-b26c-b084-f62b95aec913",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "c2635f0d-06fe-e2d9-166c-9a4385a5e148",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "437cd71b-13c8-ef8d-499d-54216cb42abb",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "cb8e6e6c-b095-0e9c-daf3-0e5cca750629",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "ac665bfd-366e-dbf0-fb03-27bef786a9a9",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "1dfe853f-f39f-539d-909b-2745e998f097",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "a2ee6fde-d6ff-5e63-cc9d-1eabcb503de9",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "cc42ff96-f221-eb52-4484-af7bb86e1248",
+                                              "minUniqueCount": "1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "9535f9e0-4d28-59cd-b28d-66698447fbca",
+                                              "minUniqueCount": "4"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "42db589f-940e-697c-8bbd-188f6d3bc47b",
+                                              "minUniqueCount": "1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "fd2763b7-5b0a-54da-1cc1-d2ce0643bb84",
+                                              "minUniqueCount": "1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "26fb0728-a5df-0839-7a22-c7b8e8a34450",
+                                              "minUniqueCount": "1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "cf39f559-da9d-7251-905a-cc3205bda968",
+                                              "minUniqueCount": "1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "529aa8ae-20c8-b6d9-cf4d-72fd6cea87f7"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "5bf42bf2-271c-7462-5969-cbfa5f05c9ee"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "ff5d2049-f8f8-8b82-9782-0c1466e12466"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "e2b2bd5f-88c2-444d-f494-de4f2c23cd88"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "beb3a829-b954-8139-6628-6f94992e0bdd"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "53b6acb3-72e5-a4cd-964d-ae802fd5278c"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "Not": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "712c7c63-8e74-f78c-a681-abd9519fe8af"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "342991b7-b912-10d9-837e-502dfd4cbda5"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "36cd81bd-0559-8795-4aed-95e1c52304e0"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "a02f04a9-ba80-b52d-27a1-489ede5bfa63"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "United_States_Sensitive_Data_Detected": [
+                                  ""
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "a2c8155c-e841-153d-6be7-0f76b5a34223",
+            "rules": [
+              "53dcf015-e881-572e-9852-40132be0f1dc",
+              "4f37bb8a-62b2-b26c-b084-f62b95aec913",
+              "c2635f0d-06fe-e2d9-166c-9a4385a5e148",
+              "437cd71b-13c8-ef8d-499d-54216cb42abb",
+              "cb8e6e6c-b095-0e9c-daf3-0e5cca750629",
+              "ac665bfd-366e-dbf0-fb03-27bef786a9a9",
+              "1dfe853f-f39f-539d-909b-2745e998f097",
+              "a2ee6fde-d6ff-5e63-cc9d-1eabcb503de9",
+              "cc42ff96-f221-eb52-4484-af7bb86e1248",
+              "9535f9e0-4d28-59cd-b28d-66698447fbca",
+              "42db589f-940e-697c-8bbd-188f6d3bc47b",
+              "fd2763b7-5b0a-54da-1cc1-d2ce0643bb84",
+              "26fb0728-a5df-0839-7a22-c7b8e8a34450",
+              "cf39f559-da9d-7251-905a-cc3205bda968"
+            ]
+          },
+          {
+            "name": "United States Social Security Number (SSN) and Taxpayer ID Policy",
+            "description": "Detect United States taxpayer identification numbers.  This is typically the U.S. Social Security Number (SSN).",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "c56c4728-8b7c-e84a-240f-b3de5888fd4f",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States Social Security Number (SSN) and Taxpayer ID Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detect United States taxpayer identification numbers.  This is typically the U.S. Social Security Number (SSN).",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2021",
+                          "minor": "7",
+                          "build": "1",
+                          "revision": "12216"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L6.21"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R53"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_Higher_Confidence_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "And": [
+                                  {
+                                    "Or": [
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "4781f188-f04e-a954-8480-fc670bdc4e61"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "de8414dd-2b62-006a-8d37-ab76ed468d46",
+                                              "minConfidence": "90"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "d8514641-f6ef-3926-f9de-41a98d93e6a3"
+                                            }
+                                          }
+                                        ]
+                                      },
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "247b8d70-6e25-7bfe-ca36-6ee82d64a7e0",
+                                              "minConfidence": "75",
+                                              "patternMode": "withinConfidenceRange"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "dc7a8728-ed43-712a-ec1a-60a108cae6ca"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "e3021702-e1af-8613-5d0c-35218af0755e"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "0c5b2116-0c66-94e6-cade-01ef1a31a370"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "Not": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "9a465749-769f-d01e-d23f-6093b418471e"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "d87660f6-5672-d876-2755-086225cfa6b3"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "US_SSN_Detected": [
+                                  {
+                                    "Attributes": {
+                                      "confidence": "90"
+                                    }
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "c56c4728-8b7c-e84a-240f-b3de5888fd4f",
+            "rules": [
+              "4781f188-f04e-a954-8480-fc670bdc4e61",
+              "de8414dd-2b62-006a-8d37-ab76ed468d46",
+              "7c0f72ed-2cc7-5b50-50ad-7d7d576a561c",
+              "247b8d70-6e25-7bfe-ca36-6ee82d64a7e0",
+              "dc7a8728-ed43-712a-ec1a-60a108cae6ca"
+            ]
+          },
+          {
+            "name": "United States National Institute of Standards and Technology (NIST) 800-171 Policy",
+            "description": "Detect forms and terms relating to the U.S. National Institute of Standards and Technology (NIST) 800-171 publication.",
+            "policyRule": {
+              "DlpPolicyTemplate": {
+                "Attributes": {
+                  "xmlns": "http://schemas.nucleuz.com/2013/dlp_policy"
+                },
+                "Metadata": [
+                  {
+                    "Attributes": {
+                      "id": "a8bc2242-d6e2-2842-171f-36f77d0cb875",
+                      "formatVersion": "101"
+                    },
+                    "Name": [
+                      {
+                        "Value": "United States National Institute of Standards and Technology (NIST) 800-171 Policy",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Description": [
+                      {
+                        "Value": "Detect forms and terms relating to the U.S. National Institute of Standards and Technology (NIST) 800-171 publication.",
+                        "Attributes": {
+                          "langcode": "en",
+                          "default": "true"
+                        }
+                      }
+                    ],
+                    "Version": [
+                      {
+                        "Attributes": {
+                          "major": "2023",
+                          "minor": "12",
+                          "build": "0",
+                          "revision": "12248"
+                        }
+                      }
+                    ],
+                    "Categories": [
+                      {
+                        "Locations": [
+                          {
+                            "Location": [
+                              {
+                                "Attributes": {
+                                  "idRef": "L_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Industries": [
+                          {
+                            "Industry": [
+                              {
+                                "Attributes": {
+                                  "idRef": "I_ALL"
+                                }
+                              }
+                            ]
+                          }
+                        ],
+                        "Regulations_Laws": [
+                          {
+                            "Regulation_Law": [
+                              {
+                                "Attributes": {
+                                  "idRef": "R52"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ],
+                "Rules": [
+                  {
+                    "Rule": [
+                      {
+                        "Attributes": {
+                          "id": "Default_"
+                        },
+                        "FormatVersion": [
+                          {
+                            "Attributes": {
+                              "version": "1"
+                            },
+                            "Condition": [
+                              {
+                                "And": [
+                                  {
+                                    "Or": [
+                                      {
+                                        "ClassificationRule": [
+                                          {
+                                            "Attributes": {
+                                              "idRef": "8441922e-f33b-7aaa-168c-6eb43275b8e9"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "e31eed58-1685-d0ae-b9f3-c77eae49046a"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "3540cdf3-0f75-4572-194c-1e422ffd66e1"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "353336e9-2cbd-10eb-585b-6c60881c6749",
+                                              "minCount": "2"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "b8f87846-f164-ca39-b957-88938b900d4f",
+                                              "minCount": "2"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "95435b6a-3731-eba8-5338-dda3f5865d24"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "4b784655-1cc3-2d0e-2a13-249c8baae35f"
+                                            }
+                                          },
+                                          {
+                                            "Attributes": {
+                                              "idRef": "9d2344dc-df72-fa2e-fb72-3db563adee81"
+                                            }
+                                          }
+                                        ]
+                                      }
+                                    ],
+                                    "Not": [
+                                      {
+                                        "Or": [
+                                          {
+                                            "ClassificationRule": [
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "09204d78-0b5a-4c19-b06d-c893aa32275b"
+                                                }
+                                              },
+                                              {
+                                                "Attributes": {
+                                                  "idRef": "b03dabe1-b3e1-04b0-2408-b204c08cca54"
+                                                }
+                                              }
+                                            ]
+                                          }
+                                        ]
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ],
+                            "Actions": [
+                              {
+                                "US_NIST_800-171_Content_Detected": [
+                                  ""
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            },
+            "policyGuid": "a8bc2242-d6e2-2842-171f-36f77d0cb875",
+            "rules": [
+              "8441922e-f33b-7aaa-168c-6eb43275b8e9",
+              "e31eed58-1685-d0ae-b9f3-c77eae49046a",
+              "3540cdf3-0f75-4572-194c-1e422ffd66e1",
+              "353336e9-2cbd-10eb-585b-6c60881c6749",
+              "b8f87846-f164-ca39-b957-88938b900d4f"
+            ]
+          }
+        ]
+      },
+      "ui": {
+        "position": {
+          "x": -120,
+          "y": 340
+        },
+        "measured": {
+          "width": 140,
+          "height": 77
+        },
+        "data": {
+          "provider": "classify",
+          "class": "default",
+          "type": "default"
+        },
+        "formDataValid": true
+      },
+      "input": [
+        {
+          "lane": "text",
+          "from": "webhook_2"
+        }
+      ]
+    },
+    {
+      "id": "anonymize_text_1",
+      "provider": "anonymize_text",
+      "config": {
+        "profile": "glinerBiomedLarge",
+        "glinerMergedLarge": {
+          "anonymizeChar": "#"
+        },
+        "glinerBiomedLarge": {
+          "anonymizeChar": "*"
+        }
+      },
+      "ui": {
+        "position": {
+          "x": 40,
+          "y": 460
+        },
+        "measured": {
+          "width": 140,
+          "height": 77
+        },
+        "data": {
+          "provider": "anonymize_text",
+          "class": "default",
+          "type": "default"
+        },
+        "formDataValid": true
+      },
+      "input": [
+        {
+          "lane": "classifications",
+          "from": "classify_1"
+        },
+        {
+          "lane": "text",
+          "from": "webhook_2"
+        }
+      ]
+    },
+    {
+      "id": "preprocessor_langchain_1",
+      "provider": "preprocessor_langchain",
+      "config": {
+        "profile": "default",
+        "default": {
+          "mode": "strlen",
+          "splitter": "RecursiveCharacterTextSplitter",
+          "strlen": 512
+        }
+      },
+      "ui": {
+        "position": {
+          "x": -300,
+          "y": 620
+        },
+        "measured": {
+          "width": 140,
+          "height": 77
+        },
+        "data": {
+          "provider": "preprocessor_langchain",
+          "class": "default",
+          "type": "default"
+        },
+        "formDataValid": false
+      },
+      "input": [
+        {
+          "lane": "text",
+          "from": "anonymize_text_1"
+        }
+      ]
+    },
+    {
+      "id": "qdrant_1",
+      "provider": "qdrant",
+      "config": {
+        "profile": "local",
+        "cloud": {
+          "collection": "APARAVI",
+          "port": 6333,
+          "score": 0.7
+        },
+        "local": {
+          "collection": "APARAVI",
+          "host": "localhost",
+          "port": 6333,
+          "score": 0.7
+        }
+      },
+      "ui": {
+        "position": {
+          "x": 420,
+          "y": 500
+        },
+        "measured": {
+          "width": 140,
+          "height": 93
+        },
+        "data": {
+          "provider": "qdrant",
+          "class": "default",
+          "type": "default"
+        },
+        "formDataValid": false
+      },
+      "input": [
+        {
+          "lane": "documents",
+          "from": "embedding_transformer_1"
+        }
+      ]
+    },
+    {
+      "id": "embedding_transformer_1",
+      "provider": "embedding_transformer",
+      "config": {
+        "profile": "miniLM"
+      },
+      "ui": {
+        "position": {
+          "x": -80,
+          "y": 620
+        },
+        "measured": {
+          "width": 140,
+          "height": 77
+        },
+        "data": {
+          "provider": "embedding_transformer",
+          "class": "default",
+          "type": "default"
+        },
+        "formDataValid": true
+      },
+      "input": [
+        {
+          "lane": "documents",
+          "from": "preprocessor_langchain_1"
+        }
+      ]
+    },
+    {
+      "id": "response_1",
+      "provider": "response",
+      "config": {
+        "lanes": []
+      },
+      "ui": {
+        "position": {
+          "x": 380,
+          "y": 720
+        },
+        "measured": {
+          "width": 140,
+          "height": 169
+        },
+        "data": {
+          "provider": "response",
+          "class": "infrastructure",
+          "type": "default"
+        },
+        "formDataValid": true
+      },
+      "input": [
+        {
+          "lane": "answers",
+          "from": "llm_gemini_1"
+        }
+      ]
+    },
+    {
+      "id": "webhook_2",
+      "provider": "webhook",
+      "config": {
+        "hideForm": true,
+        "mode": "Source",
+        "parameters": {},
+        "type": "webhook"
+      },
+      "ui": {
+        "position": {
+          "x": -460,
+          "y": 500
+        },
+        "measured": {
+          "width": 140,
+          "height": 123
+        },
+        "data": {
+          "provider": "webhook",
+          "class": "source",
+          "type": "default"
+        },
+        "formDataValid": true
+      }
+    },
+    {
+      "id": "llm_gemini_1",
+      "provider": "llm_gemini",
+      "config": {
+        "profile": "gemini-2_5-flash",
+        "gemini-2_5-flash": {}
+      },
+      "ui": {
+        "position": {
+          "x": 120,
+          "y": 720
+        },
+        "measured": {
+          "width": 140,
+          "height": 62
+        },
+        "data": {
+          "provider": "llm_gemini",
+          "class": "llm",
+          "type": "default"
+        },
+        "formDataValid": false
+      },
+      "input": [
+        {
+          "lane": "questions",
+          "from": "embedding_transformer_1"
+        }
+      ]
+    }
+  ],
+  "servicesVersion": 1,
+  "id": "62ade86c-9bd3-4535-b1e4-e61414c8c011"
+}

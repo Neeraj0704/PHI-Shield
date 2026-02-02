@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PHI Access Logs - PHI-Shield</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/phi-access.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="shield-icon">🛡️</div>
+        <span class="brand">PHI-Shield</span>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">🔍</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebar-username">Compliance</div>
+          <div class="user-role">Compliance Officer</div>
+        </div>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="compliance.html"><span class="menu-icon">📊</span><span>Dashboard</span></a>
+        <a class="active" href="phi-access.html"><span class="menu-icon">📄</span><span>PHI Access Logs</span></a>
+        <a href="access-policy.html"><span class="menu-icon">🔐</span><span>Access Policy Management</span></a>
+        <div class="menu-divider"></div>
+        <a href="../index.html"><span class="menu-icon">🚪</span><span>Log Out</span></a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="header-left">
+          <h1>PHI Access Logs</h1>
+          <p class="subtitle">Detailed record of access to Protected Health Information.</p>
+        </div>
+        <div class="topbar-actions">
+          <button type="button" class="clear-logs-btn" id="clear-logs-btn" title="Clear all logs"><span class="btn-icon">🗑</span><span>Clear Logs</span></button>
+          <button class="export-btn"><span class="btn-icon">⬇</span><span>Export Logs</span></button>
+        </div>
+      </header>
+      <section class="access-events-section">
+        <div class="section-header">
+          <h2>Access Events</h2>
+          <div class="search-filter-bar">
+            <div class="search-wrapper">
+              <span class="search-icon">🔍</span>
+              <input class="search-input" type="text" placeholder="Search logs..." id="search-input" />
+            </div>
+          </div>
+        </div>
+        <div class="logs-table">
+          <div class="row header">
+            <div>TIMESTAMP</div>
+            <div>USER</div>
+            <div>PATIENT ID</div>
+            <div>RISK</div>
+            <div>DETAILS</div>
+          </div>
+          <div id="logs-tbody"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="../js/phi-access.js"></script>
+</body>
+</html>

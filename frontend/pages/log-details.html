@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>PHI Access Log Details - PHI-Shield</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/log-details.css" />
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <div class="shield-icon">🛡️</div>
+        <span class="brand">PHI-Shield</span>
+      </div>
+      <div class="user-profile">
+        <div class="avatar">🔍</div>
+        <div class="user-info">
+          <div class="user-name" id="sidebar-username">Compliance</div>
+          <div class="user-role">Compliance Officer</div>
+        </div>
+      </div>
+      <nav class="sidebar-menu">
+        <a href="compliance.html"><span class="menu-icon">📊</span><span>Dashboard</span></a>
+        <a class="active" href="phi-access.html"><span class="menu-icon">📄</span><span>PHI Access Logs</span></a>
+        <a href="access-policy.html"><span class="menu-icon">🔐</span><span>Access Policy Management</span></a>
+        <div class="menu-divider"></div>
+        <a href="#" id="logout-link"><span class="menu-icon">🚪</span><span>Log Out</span></a>
+      </nav>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <div class="header-left">
+          <h1>PHI Access Log Details</h1>
+          <p class="subtitle">Detailed view of a single PHI access log entry (redacted).</p>
+        </div>
+        <div class="header-actions">
+          <button class="action-btn export-btn"><span class="btn-icon">⬇</span><span>Export</span></button>
+          <button class="close-btn" id="back-btn"><span>✕</span></button>
+        </div>
+      </header>
+      <div id="log-not-found" class="log-not-found" style="display: none;">
+        Log not found.
+      </div>
+      <section class="log-details-section" id="log-details-section">
+        <div class="detail-grid">
+          <div class="detail-item">
+            <label>Timestamp</label>
+            <div class="detail-value" id="detail-timestamp">—</div>
+          </div>
+          <div class="detail-item">
+            <label>User</label>
+            <div class="detail-value" id="detail-user">—</div>
+          </div>
+          <div class="detail-item">
+            <label>Patient ID</label>
+            <div class="detail-value" id="detail-patient-id">—</div>
+          </div>
+          <div class="detail-item">
+            <label>Risk Severity</label>
+            <div class="detail-value" id="detail-risk">—</div>
+          </div>
+          <div class="detail-item">
+            <label>PHI Tags</label>
+            <div class="phi-tags" id="detail-phi-tags">—</div>
+          </div>
+        </div>
+        <div class="llm-section">
+          <h3>Details (LLM Response — redacted)</h3>
+          <div class="llm-content">
+            <div class="query-section">
+              <strong>User query (redacted):</strong>
+              <p class="query-text" id="detail-query">—</p>
+            </div>
+            <div class="response-section">
+              <strong>LLM Response (redacted):</strong>
+              <div class="response-text" id="detail-response">—</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script type="module" src="../js/log-details.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+# Ignore environment variables
+.env
+*.env
+
+# Ignore Python virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Pathway output files
+*.jsonl
+*.log
+
+# Ignore Node.js modules
+node_modules/
+
+# Ignore local data folders
+health_input/
+patient_input/
+response_store/
+
+# Ignore node modules
+node_modules/
+
+# Ignore TypeScript build outputs
+*.js.map
+*.d.ts
+*.d.ts.map

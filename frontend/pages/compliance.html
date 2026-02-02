@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>PHI-Shield - Compliance Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../css/compliance.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <div class="shield-icon">🛡️</div>
+                <span class="brand">PHI-Shield</span>
+            </div>
+            <div class="user-profile">
+                <div class="avatar">🔍</div>
+                <div class="user-info">
+                    <div class="user-name" id="sidebar-username">Compliance</div>
+                    <div class="user-role">Compliance Officer</div>
+                </div>
+            </div>
+            <nav class="sidebar-menu">
+                <a class="active" href="compliance.html"><span class="menu-icon">📊</span><span>Dashboard</span></a>
+                <a href="phi-access.html"><span class="menu-icon">📄</span><span>PHI Access Logs</span></a>
+                <a href="access-policy.html"><span class="menu-icon">🔐</span><span>Access Policy Management</span></a>
+                <div class="menu-divider"></div>
+                <a href="#" id="logout-link"><span class="menu-icon">🚪</span><span>Log Out</span></a>
+            </nav>
+        </aside>
+        <main class="main">
+            <header class="topbar">
+                <div class="header-left">
+                    <h1>Compliance Dashboard</h1>
+                    <p class="subtitle">Real-time PHI access monitoring and compliance alerts.</p>
+                </div>
+            </header>
+            <section class="metrics">
+                <div class="metric">
+                    <div class="metric-title">Total Alerts Today</div>
+                    <div class="metric-value" id="metric-alerts">—</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Active Investigations</div>
+                    <div class="metric-value" id="metric-investigations">—</div>
+                </div>
+                <div class="metric">
+                    <div class="metric-title">Total PHI Views (24h)</div>
+                    <div class="metric-value" id="metric-phi-views">—</div>
+                </div>
+            </section>
+            <section class="alerts-section">
+                <div class="section-header">
+                    <h2>Current Alerts</h2>
+                    <a href="phi-access.html" class="view-all-link">View PHI Access Logs</a>
+                </div>
+                <div class="alerts-table">
+                    <div class="row header">
+                        <div>SEVERITY</div>
+                        <div>DESCRIPTION</div>
+                        <div>USER</div>
+                        <div>TIMESTAMP</div>
+                        <div></div>
+                    </div>
+                    <div id="alerts-tbody"></div>
+                </div>
+            </section>
+            <section class="charts">
+                <div class="chart">
+                    <h3>PHI Access Over Time</h3>
+                    <p class="chart-sub">Past 7 days</p>
+                    <canvas id="phiAccessOverTimeChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>PHI Access by User</h3>
+                    <p class="chart-sub">From metrics</p>
+                    <canvas id="phiAccessByUserChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script type="module" src="../js/compliance.js"></script>
+</body>
+</html>

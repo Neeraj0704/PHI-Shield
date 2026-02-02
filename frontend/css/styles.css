@@ -1,0 +1,172 @@
+/* Background */
+body {
+  margin: 0;
+  background: #f5f6fa;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont;
+  color: #1f2937;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Center container */
+.login-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+/* Brand logo + text */
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 28px;
+}
+
+.logo {
+  width: 42px;
+  height: 42px;
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  border-radius: 50%;
+  margin-bottom: 8px;
+}
+
+.brand h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0;
+  color: #1e293b;
+}
+
+/* White card — centered */
+.login-card {
+  width: 380px;
+  max-width: 90vw;
+  background: #ffffff;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  margin: 0 auto;
+}
+
+.login-card form {
+  max-width: 320px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+/* Titles */
+.login-title {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.login-subtitle {
+  margin: 6px 0 26px;
+  font-size: 0.95rem;
+  color: #6b7280;
+}
+
+/* Inputs */
+.input-label {
+  display: block;
+  text-align: left;
+  font-size: 0.85rem;
+  margin-bottom: 6px;
+  margin-top: 16px;
+  color: #374151;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  font-size: 0.95rem;
+  background: #f3f4f6;
+  outline: none;
+  transition: all 0.15s ease;
+}
+
+input:focus {
+  border-color: #2563eb;
+  background: white;
+  box-shadow: 0 0 0 1px rgba(37, 99, 235, 0.25);
+}
+
+/* Login button */
+.login-btn {
+  width: 100%;
+  padding: 12px 0;
+  margin-top: 28px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.login-btn:hover {
+  background: #1d4ed8;
+}
+
+/* Action buttons */
+.action-buttons {
+  margin-top: 24px;
+  width: 100%;
+}
+
+.compliance-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 12px 0;
+  background: #9333ea;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.compliance-btn:hover {
+  background: #7e22ce;
+}
+
+.compliance-btn .btn-icon {
+  font-size: 1.1rem;
+}
+
+/* Forgot password link */
+.forgot-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-size: 0.9rem;
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.input-error {
+  color: #dc2626;
+  font-size: 0.8rem;
+  margin-top: 4px;
+  text-align: left;
+}

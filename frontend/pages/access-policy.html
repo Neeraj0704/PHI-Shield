@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Access Policy Management - PHI-Shield</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/access-policy.css" />
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-header">
+      <div class="shield-icon">🛡️</div>
+      <span class="brand">PHI-Shield</span>
+    </div>
+
+    <div class="user-profile">
+      <div class="avatar">🔍</div>
+      <div class="user-info">
+        <div class="user-name">Chris Powell</div>
+        <div class="user-role">Compliance Officer</div>
+      </div>
+    </div>
+
+    <nav class="sidebar-menu">
+      <a href="compliance.html">
+        <span class="menu-icon">📊</span>
+        <span>Dashboard</span>
+      </a>
+      <a href="phi-access.html">
+        <span class="menu-icon">📄</span>
+        <span>PHI Access Logs</span>
+      </a>
+      <a class="active" href="access-policy.html">
+        <span class="menu-icon">🔐</span>
+        <span>Access Policy Management</span>
+      </a>
+      <div class="menu-divider"></div>
+      <a href="../index.html">
+        <span class="menu-icon">🚪</span>
+        <span>Log Out</span>
+      </a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="main">
+    <header class="topbar">
+      <div class="header-left">
+        <h1>Access Policy Management</h1>
+        <p class="subtitle">Manage user roles, permissions, and access policies.</p>
+      </div>
+      <button class="add-policy-btn">
+        <span class="btn-icon">+</span>
+        <span>Add New Policy</span>
+      </button>
+    </header>
+
+    <!-- POLICY TABLE -->
+    <section class="policy-table-section">
+      <div class="policy-table">
+        <div class="row header">
+          <div>ROLE</div>
+          <div>PERMISSIONS</div>
+          <div>LAST UPDATED</div>
+          <div>ACTIONS</div>
+        </div>
+        <div id="policy-rows"></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<!-- Edit Permissions Modal -->
+<div id="edit-permissions-modal" class="modal" hidden aria-modal="true" aria-labelledby="modal-title" role="dialog">
+  <div class="modal-overlay" id="modal-overlay"></div>
+  <div class="modal-card">
+    <h2 id="modal-title" class="modal-title">Edit permissions</h2>
+    <p class="modal-subtitle" id="modal-role-label"></p>
+    <div class="modal-permissions" id="modal-permissions-list"></div>
+    <div class="modal-actions">
+      <button type="button" class="modal-btn secondary" id="modal-cancel">Cancel</button>
+      <button type="button" class="modal-btn primary" id="modal-save">Save</button>
+    </div>
+  </div>
+</div>
+
+<!-- Add New Policy Modal -->
+<div id="add-policy-modal" class="modal" hidden aria-modal="true" aria-labelledby="add-modal-title" role="dialog">
+  <div class="modal-overlay" id="add-modal-overlay"></div>
+  <div class="modal-card">
+    <h2 id="add-modal-title" class="modal-title">Add New Policy</h2>
+    <p class="modal-subtitle">Enter a role name and select the permissions for this role.</p>
+    <div class="modal-field">
+      <label for="add-modal-role">Role name</label>
+      <input type="text" id="add-modal-role" placeholder="e.g. Physician, Nurse" autocomplete="off" />
+    </div>
+    <div class="modal-permissions" id="add-modal-permissions-list"></div>
+    <div class="modal-actions">
+      <button type="button" class="modal-btn secondary" id="add-modal-cancel">Cancel</button>
+      <button type="button" class="modal-btn primary" id="add-modal-save">Add Policy</button>
+    </div>
+  </div>
+</div>
+
+<!-- Floating Action Button -->
+<div class="fab">
+  <span class="fab-icon">🤖</span>
+</div>
+
+<script type="module" src="../js/access-policy.js"></script>
+
+</body>
+</html>
+

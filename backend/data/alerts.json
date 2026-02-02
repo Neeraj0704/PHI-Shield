@@ -1,0 +1,11 @@
+[
+  {
+    "id": "alt_f99010a3",
+    "severity": "high",
+    "description": "High-risk PHI access (High)",
+    "user_id": "doctorJane@doctor.com",
+    "timestamp": "2026-02-02T12:34:32.740246+00:00",
+    "log_id": "f99010a3-65f9-4ff9-8dc7-b5ab9905de57",
+    "type": "risk"
+  }
+]

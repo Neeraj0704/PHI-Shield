@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PHI-Shield - Patient Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../css/chatbot.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+
+  <header class="top-nav">
+    <div class="nav-left">
+      <div class="logo"></div>
+      <h1>PHI-Shield</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-patients" placeholder="Search Patients">
+    </div>
+    <div class="nav-icons" id="nav-icons">
+      <button type="button" class="icon-btn nav-icon-btn" id="nav-bell" title="Notifications" aria-label="Notifications"><span class="nav-icon-label">🔔</span></button>
+      <button type="button" class="icon-btn nav-icon-btn" id="nav-settings" title="Settings" aria-label="Settings"><span class="nav-icon-label">⚙️</span></button>
+      <div class="profile-dropdown-wrap">
+        <button type="button" class="profile-btn" id="profile-btn" aria-haspopup="true" aria-expanded="false" aria-label="Profile">
+          <div class="profile-avatar" aria-hidden="true">U</div>
+        </button>
+        <div class="profile-dropdown" id="profile-dropdown" hidden>
+          <a href="#" class="profile-dropdown-item" id="profile-link">Profile</a>
+          <button type="button" class="profile-dropdown-item" id="logout-btn">Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+
+    <div class="left-panel">
+      <div class="patient-select-section">
+        <label class="input-label" for="patient-select">Select Patient</label>
+        <select id="patient-select" class="patient-select" aria-describedby="backend-error">
+          <option value="">Loading patients...</option>
+        </select>
+        <p id="patient-load-hint" class="patient-load-hint" hidden></p>
+      </div>
+
+      <div class="patient-card" id="patient-card">
+        <div class="patient-card-placeholder" id="patient-placeholder">Select a patient to view details</div>
+        <div class="patient-card-content" id="patient-content" style="display: none;">
+          <img class="patient-photo" id="patient-photo" src="" alt="">
+          <div>
+            <h2 id="patient-name"></h2>
+            <p class="mrn" id="patient-mrn"></p>
+            <div class="badges" id="patient-badges"></div>
+          </div>
+        </div>
+      </div>
+
+      <nav class="tabs" id="patient-tabs" role="tablist">
+        <a role="tab" data-tab="overview" id="tab-overview">Overview</a>
+        <a role="tab" data-tab="vitals" class="active" id="tab-vitals">Vitals</a>
+        <a role="tab" data-tab="medications" id="tab-medications">Medications</a>
+        <a role="tab" data-tab="test-results" id="tab-test-results">Test Results</a>
+        <a role="tab" data-tab="allergies" id="tab-allergies">Allergies</a>
+        <a role="tab" data-tab="notes" id="tab-notes">Notes</a>
+      </nav>
+
+      <section class="tab-panel" id="panel-overview" data-panel="overview" hidden>
+        <h3>Overview</h3>
+        <p class="tab-placeholder" id="overview-content">Select a patient to see overview.</p>
+      </section>
+      <section class="tab-panel vitals-section" id="panel-vitals" data-panel="vitals">
+        <h3>Vitals</h3>
+        <div class="vital-grid">
+          <div class="vital-card">
+            <p class="label">Blood Pressure</p>
+            <p class="value" id="vital-bp-value">—</p>
+            <div class="vital-chart-container">
+              <canvas id="bloodPressureChart"></canvas>
+            </div>
+          </div>
+          <div class="vital-card">
+            <p class="label">Heart Rate</p>
+            <p class="value" id="vital-hr-value">—</p>
+            <div class="vital-chart-container">
+              <canvas id="heartRateChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="tab-panel" id="panel-medications" data-panel="medications" hidden>
+        <h3>Medications</h3>
+        <p class="tab-placeholder" id="medications-content">Select a patient to see medications.</p>
+      </section>
+      <section class="tab-panel" id="panel-test-results" data-panel="test-results" hidden>
+        <h3>Test Results</h3>
+        <p class="tab-placeholder" id="test-results-content">Select a patient to see test results.</p>
+      </section>
+      <section class="tab-panel" id="panel-allergies" data-panel="allergies" hidden>
+        <h3>Allergies</h3>
+        <p class="tab-placeholder" id="allergies-content">Select a patient to see allergies.</p>
+      </section>
+      <section class="tab-panel" id="panel-notes" data-panel="notes" hidden>
+        <h3>Notes</h3>
+        <p class="tab-placeholder" id="notes-content">Select a patient to see notes.</p>
+      </section>
+    </div>
+
+    <aside class="chat-panel">
+      <h3 class="assistant-title">Clinical Assistant</h3>
+      <p class="assistant-sub" id="assistant-sub">Select a patient to start</p>
+
+      <div id="chat-window" class="chat-window"></div>
+
+      <div class="quick-actions">
+        <button type="button" class="quick-btn">Summarize recent notes</button>
+        <button type="button" class="quick-btn">List active medications</button>
+      </div>
+
+      <form id="chat-form" class="chat-input-area">
+        <input id="chat-input" type="text" placeholder="Type your message..." required>
+        <button type="submit" class="send-btn">➤</button>
+      </form>
+    </aside>
+  </div>
+
+  <div id="backend-error" class="backend-error" hidden aria-live="polite"></div>
+  <script type="module" src="../js/chatbot.js?v=3"></script>
+</body>
+</html>

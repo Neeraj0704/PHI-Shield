@@ -1,0 +1,42 @@
+[
+  {
+    "role": "Physician",
+    "permissions": [
+      "View Patient Records",
+      "Edit Patient Records",
+      "Prescribe Medication"
+    ],
+    "last_updated": "2026-02-02"
+  },
+  {
+    "role": "Nurse",
+    "permissions": [
+      "View Patient Records",
+      "Update Vitals"
+    ],
+    "last_updated": "2023-09-28"
+  },
+  {
+    "role": "Admin Staff",
+    "permissions": [
+      "View Patient Demographics",
+      "Schedule Appointments"
+    ],
+    "last_updated": "2023-10-02"
+  },
+  {
+    "role": "Researcher",
+    "permissions": [
+      "View Anonymized Data"
+    ],
+    "last_updated": "2023-08-11"
+  },
+  {
+    "role": "Billing Department",
+    "permissions": [
+      "View Billing Information",
+      "Process Payments"
+    ],
+    "last_updated": "2023-10-20"
+  }
+]
