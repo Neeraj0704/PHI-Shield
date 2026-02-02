@@ -64,8 +64,6 @@ flowchart TB
     PP --> RES
 ```
 
-**[Open interactive architecture diagram](docs/architecture.html)** — Pan, zoom (buttons or scroll), and click nodes to see details. Open the file directly in a browser or serve from the project root.
-
 ### Data Flow Summary
 
 ```
