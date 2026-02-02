@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHI-Shield Architecture</title>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/svg-pan-zoom@3.6.1/dist/svg-pan-zoom.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1a1a2e;
+      color: #eee;
+      overflow: hidden;
+    }
+    .header {
+      padding: 12px 20px;
+      background: #16213e;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #0f3460;
+    }
+    .header h1 { margin: 0; font-size: 1.2rem; }
+    .controls {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+    .controls button {
+      padding: 6px 14px;
+      background: #0f3460;
+      color: #eee;
+      border: 1px solid #e94560;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .controls button:hover { background: #16213e; }
+    #container {
+      width: 100vw;
+      height: calc(100vh - 52px);
+      overflow: auto;
+      cursor: grab;
+    }
+    #container:active { cursor: grabbing; }
+    #container svg {
+      display: block;
+      min-width: 100%;
+      min-height: 100%;
+    }
+    .mermaid { display: flex; justify-content: center; align-items: center; min-height: 100%; padding: 40px; }
+    .info-panel {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      right: 20px;
+      max-width: 500px;
+      padding: 16px;
+      background: rgba(22, 33, 62, 0.95);
+      border: 1px solid #0f3460;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: none;
+      z-index: 100;
+    }
+    .info-panel.visible { display: block; }
+    .info-panel h3 { margin: 0 0 8px 0; color: #e94560; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>PHI-Shield Architecture</h1>
+    <div class="controls">
+      <button id="zoom-in">Zoom In</button>
+      <button id="zoom-out">Zoom Out</button>
+      <button id="reset">Reset View</button>
+    </div>
+  </div>
+  <div id="container">
+    <div class="mermaid" id="diagram">
+flowchart TB
+    subgraph EHR["1. EHR (Source of Truth — PHI allowed)"]
+        PRDB[(Patient Records DB<br/>patients_100.json)]
+        EAPI[EHR Access API<br/>GET /patients]
+        PRDB --> EAPI
+    end
+
+    subgraph RUNTIME["2. Runtime Request Flow"]
+        CLIN[👤 Clinician]
+        UI[Frontend Chat UI]
+        API[Backend API<br/>FastAPI]
+        REQ[(Request Events<br/>request_events.jsonl)]
+        LLM[Ollama LLM]
+        RES[(Response Store<br/>response_store/)]
+        CLIN --> UI --> API --> REQ
+        REQ --> LLM --> RES
+        RES --> API --> UI --> CLIN
+    end
+
+    subgraph PHISHIELD["3. PHI-Shield (No raw PHI stored)"]
+        PP[Pathway Pipeline<br/>phi_monitoring.py]
+    end
+
+    subgraph SAFETY["4. PHI Safety Pipeline"]
+        PRES[Microsoft Presidio]
+        DET[PHI Detection]
+        RED[Redaction]
+        RSK[Risk Scoring]
+        PRES --> DET --> RED --> RSK
+    end
+
+    subgraph COMPLY["5. Compliance & Outputs"]
+        RLOG[(Redacted Logs<br/>redacted_logs.jsonl)]
+        MET[(Metrics Store<br/>metrics.json)]
+        ALT[(Alerts Store<br/>alerts.json)]
+        DASH[Compliance Dashboard]
+        RLOG --> DASH
+        RSK --> RLOG
+        RSK --> MET
+        RSK --> ALT
+    end
+
+    PP --> LLM
+    PP --> PRES
+    EAPI --> PP
+    PP --> RES
+    </div>
+  </div>
+  <div class="info-panel" id="info">
+    <h3 id="info-title">Node</h3>
+    <p id="info-desc">Click a node to see details.</p>
+  </div>
+
+  <script>
+    const nodeInfo = {
+      'PRDB': { title: 'Patient Records DB', desc: 'patients_100.json — structured patient data for LLM context.' },
+      'EAPI': { title: 'EHR Access API', desc: 'GET /patients — serves patient list and details to the frontend.' },
+      'CLIN': { title: 'Clinician', desc: 'End user querying patient information via the chat UI.' },
+      'UI': { title: 'Frontend Chat UI', desc: 'React/vanilla app on port 8080 — chatbot, compliance dashboard, phi-access logs.' },
+      'API': { title: 'Backend API', desc: 'FastAPI on port 8000. Writes request events, waits for response, returns answer.' },
+      'REQ': { title: 'Request Events', desc: 'request_events.jsonl — stream of user_id, patient_id, question. API writes, Pathway reads.' },
+      'LLM': { title: 'Ollama LLM', desc: 'Local LLM (llama3.2). Generates clinical answers from patient context.' },
+      'RES': { title: 'Response Store', desc: 'response_store/{event_id}.json — raw answer for API to return. Temp file, deleted after read.' },
+      'PP': { title: 'Pathway Pipeline', desc: 'phi_monitoring.py — consumes request_events, calls LLM, redacts, writes logs and response.' },
+      'PRES': { title: 'Microsoft Presidio', desc: 'PII/PHI detection (person, SSN, dates, phone, email). Primary redaction engine.' },
+      'DET': { title: 'PHI Detection', desc: 'Identifies and categorizes PHI types in query and response text.' },
+      'RED': { title: 'Redaction', desc: 'Replaces PHI with ########. Presidio primary; regex fallback.' },
+      'RSK': { title: 'Risk Scoring', desc: 'Assigns LOW/MEDIUM/HIGH based on PHI types found. Stored in logs.' },
+      'RLOG': { title: 'Redacted Logs', desc: 'redacted_logs.jsonl — only redacted text stored. No raw PHI.' },
+      'MET': { title: 'Metrics Store', desc: 'metrics.json — totals, by day, by user, risk distribution.' },
+      'ALT': { title: 'Alerts Store', desc: 'alerts.json — high-risk events, volume alerts for compliance team.' },
+      'DASH': { title: 'Compliance Dashboard', desc: 'Frontend pages: compliance, phi-access, log-details. Reads redacted data only.' }
+    };
+
+    mermaid.initialize({
+      startOnLoad: false,
+      theme: 'dark',
+      flowchart: { useMaxWidth: true, htmlLabels: true, curve: 'basis' }
+    });
+
+    const container = document.getElementById('container');
+    let panZoom = null;
+
+    mermaid.run({ nodes: [document.getElementById('diagram')] }).then(({ svg }) => {
+      document.getElementById('diagram').innerHTML = svg;
+      const svgEl = document.querySelector('#diagram svg');
+      if (svgEl) {
+        svgEl.style.minWidth = '1200px';
+        svgEl.style.minHeight = '800px';
+        panZoom = svgPanZoom(svgEl, {
+          zoomEnabled: true,
+          controlIconsEnabled: false,
+          fit: true,
+          center: true,
+          minZoom: 0.3,
+          maxZoom: 4
+        });
+
+        document.getElementById('diagram').addEventListener('click', (e) => {
+          const el = e.target.closest('[id]');
+          if (!el) return;
+          const id = el.id.split('-').pop();
+          if (nodeInfo[id]) {
+            e.stopPropagation();
+            const info = nodeInfo[id];
+            document.getElementById('info-title').textContent = info.title;
+            document.getElementById('info-desc').textContent = info.desc;
+            document.getElementById('info').classList.add('visible');
+          }
+        });
+        document.querySelectorAll('#diagram [id]').forEach(el => {
+          const id = el.id.split('-').pop();
+          if (nodeInfo[id]) el.style.cursor = 'pointer';
+        });
+      }
+    });
+
+    document.getElementById('zoom-in').addEventListener('click', () => panZoom?.zoomIn());
+    document.getElementById('zoom-out').addEventListener('click', () => panZoom?.zoomOut());
+    document.getElementById('reset').addEventListener('click', () => panZoom?.resetZoom());
+
+    document.getElementById('container').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget || e.target.closest('.mermaid')) {
+        const info = document.getElementById('info');
+        if (!e.target.closest('[id^="flowchart"]')) info.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html>
